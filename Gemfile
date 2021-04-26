@@ -27,7 +27,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin', '~> 2.9'
+gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
+gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
