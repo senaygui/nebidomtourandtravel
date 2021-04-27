@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_112811) do
+ActiveRecord::Schema.define(version: 2021_04_27_130114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(version: 2021_04_26_112811) do
     t.string "email"
     t.string "map_embed_link"
     t.string "why_choose_us"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "service_name"
+    t.text "service_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

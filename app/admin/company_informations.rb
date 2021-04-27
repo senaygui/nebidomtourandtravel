@@ -2,8 +2,8 @@ ActiveAdmin.register CompanyInformation do
 
   permit_params :company_name,:about_us,:mission,:vision,:facebook_link,:tiktok_link,:instagram_link,:youtube_link,:telegram_link,:whatsapp_link,:address,:alternative_address,:phone_number,:alternative_phone_number,:map_embed_link,:email,:why_choose_us
   
-  actions :index, :show, :update, :edit
-  
+  # actions :index, :show, :update, :edit
+  index do
     selectable_column
     column :company_name
     column :email
@@ -69,4 +69,5 @@ ActiveAdmin.register CompanyInformation do
       active_admin_comments
     end
   end  
+
 end
