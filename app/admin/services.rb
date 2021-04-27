@@ -1,6 +1,6 @@
 ActiveAdmin.register Service do
 
-  permit_params :service_name, :service_description, :created_by, :updated_by
+  permit_params :service_name, :service_description
 
   index do
     selectable_column
