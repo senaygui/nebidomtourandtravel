@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_074351) do
+ActiveRecord::Schema.define(version: 2021_04_28_145221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,21 @@ ActiveRecord::Schema.define(version: 2021_04_28_074351) do
     t.text "service_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.bigint "destination_id"
+    t.string "tour_title"
+    t.string "tour_duration"
+    t.text "itinerary"
+    t.text "other_essential_info"
+    t.string "map"
+    t.boolean "tour_avaliblity_status", default: true
+    t.string "tour_display_on_homepage_priority", default: "low"
+    t.string "tour_price_range"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_tours_on_destination_id"
   end
 
 end

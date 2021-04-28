@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination: one
+  tour_title: MyString
+  tour_duration: MyString
+  itinerary: MyText
+  other_essential_info: MyText
+  map: MyString
+  tour_avaliblity_status: false
+  tour_display_on_homepage_priority: MyString
+  tour_price_range: MyString
+
+two:
+  destination: two
+  tour_title: MyString
+  tour_duration: MyString
+  itinerary: MyText
+  other_essential_info: MyText
+  map: MyString
+  tour_avaliblity_status: false
+  tour_display_on_homepage_priority: MyString
+  tour_price_range: MyString
