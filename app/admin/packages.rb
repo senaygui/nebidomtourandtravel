@@ -1,6 +1,6 @@
 ActiveAdmin.register Package do
 
-permit_params :package_title,:package_description,:price, :tour_id
+permit_params :package_title,:package_description,:price, :tour_id,package_checklists_attributes: [:id, :list, :_destroy]
   index do
     selectable_column
     column :package_title
@@ -29,6 +29,9 @@ permit_params :package_title,:package_description,:price, :tour_id
           order_by: 'id_asc'
       f.input :price
       f.input :package_description
+      f.has_many :package_checklists, allow_destroy: true, new_record: true, sortable_start: 3 do |a|
+          a.input :list
+      end
     end
     f.actions
   end
@@ -46,6 +49,16 @@ permit_params :package_title,:package_description,:price, :tour_id
         row :created_at
       end
       
+    end
+  end
+
+  sidebar "Package Checklist", :only => :show do
+    table_for package.package_checklists do
+
+      column "list" do |tag|
+        tag.list
+      end
+
     end
   end
   
