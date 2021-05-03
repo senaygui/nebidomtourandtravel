@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination_name: MyString
+  destination_description: MyText
+  country: MyString
+  city: MyString
+  map_embed_link: MyString
+
+two:
+  destination_name: MyString
+  destination_description: MyText
+  country: MyString
+  city: MyString
+  map_embed_link: MyString

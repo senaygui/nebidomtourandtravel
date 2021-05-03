@@ -11,6 +11,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -26,7 +27,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin', '~> 2.9'
+gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
+gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
+gem 'country_select', '~> 4.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -42,7 +48,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rails-db'
+  gem 'dotenv-rails'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
