@@ -1,2 +1,75 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<div class="hero-wrap js-fullheight" style="background-image: url('<%= asset_path("Lalibela2.jpg")%>');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+				<div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+					<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index-2.html">Home</a></span> <span>Contact</span></p>
+					<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact Us</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+<section class="ftco-section contact-section ftco-degree-bg">
+	<div class="container">
+		<div class="row d-flex mb-5 contact-info">
+			<div class="col-md-12 mb-4">
+				<h2 class="h4">Contact Information</h2>
+			</div>
+			<div class="w-100"></div>
+			<div class="col-md-3">
+				<p><span>Address:</span> <%= @company_information.address%></p>
+				<p><span>Address 2:</span> <%= @company_information.alternative_address%></p>
+				
+				
+			</div>
+			<div class="col-md-3">
+				<p><span>Phone number:</span> <a href="tel://<%= @company_information.phone_number%>"><%= @company_information.phone_number%></p>
+				<p><span>Phone number 2:</span> <a href="tel://<%= @company_information.alternative_phone_number%>"><%= @company_information.alternative_phone_number%></a></p>
+			</div>
+			<div class="col-md-3">
+				<p><span>Email:</span> <span><%= @company_information.email%></span></p>
+			</div>
+			<div class="col-md-3">
+				<ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+          <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+          <li class="ftco-animate"><a href="<%= @company_information.facebook_link%>"><span class="icon-facebook"></span></a></li>
+          <li class="ftco-animate"><a href="<%= @company_information.instagram_link%>"><span class="icon-instagram"></span></a></li>
+        </ul>
+			</div>
+
+		</div>
+		<div class="row block-9">
+			<div class="col-md-6 pr-md-5">
+				<%= form_for(Contact.new, url: pages_path, method: "post") do |f|%>
+					<div class="form-group">
+						<%= f.text_field :full_name, class: "form-control", placeholder: "Full Name *",required: true %>
+					</div>
+					<div class="form-group">
+						<%= f.text_field :email, class: "form-control", placeholder: "Email *",required: true %>
+					</div>
+					<div class="form-group">
+						<%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
+					</div>
+					<div class="form-group">
+						<%= f.text_field :subject, class: "form-control", placeholder: "Subject",required: true %>
+					</div>
+					<div class="form-group">
+						<select name="contact[comment_type]" id="user_sex" class="form-control custom-select custom-select-lg mb-3">
+						  <option selected>Type Of Message</option>
+						  <option value="Testimonial">Testimonial</option>
+						  <option value="Comment">Comment</option>
+						  <option value="Question">Question</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<%= f.text_area :message ,cols: 30, rows: 7, class: "form-control", placeholder: "Message..."%>
+					</div>
+					<div class="form-group">
+						<%= f.submit 'Send Message ', class: "btn btn-primary py-3 px-5" %>
+					</div>
+				<%end%>
+			</div>
+			<div class="col-md-6" id="map"><%= @company_information.map_embed_link.html_safe%></div>
+		</div>
+	</div>
+</section>

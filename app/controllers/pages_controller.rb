@@ -24,6 +24,8 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @company_information = CompanyInformation.first
+    @testimonials = Contact.where(comment_type: "Testimonial").limit(4)
   end
 
   def user_comment_params

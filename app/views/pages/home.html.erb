@@ -30,38 +30,37 @@
 	</div>
 </section>
 <section class="ftco-section">
-		<div class="container">
-			<div class="row d-md-flex">
-				<div class="col-md-6 ftco-animate img about-image" style="background-image: url('<%= asset_path("Lalibela2.jpg")%>');">
-				</div>
-				<div class="col-md-6 ftco-animate p-md-5">
-					<div class="row">
-						<div class="col-md-12 nav-link-wrap mb-5">
-							<div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-								<a class="nav-link active" id="v-pills-whatwedo-tab" data-toggle="pill" href="#v-pills-whatwedo" role="tab" aria-controls="v-pills-whatwedo" aria-selected="true">About us</a>
-								<a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab" aria-controls="v-pills-mission" aria-selected="false">Our mission</a>
-								<a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-goal" role="tab" aria-controls="v-pills-goal" aria-selected="false">Our Vision</a>
-							</div>
+	<div class="container">
+		<div class="row d-md-flex">
+			<div class="col-md-6 ftco-animate img about-image" style="background-image: url('<%= asset_path("Lalibela2.jpg")%>');">
+			</div>
+			<div class="col-md-6 ftco-animate p-md-5">
+				<div class="row">
+					<div class="col-md-12 nav-link-wrap mb-5">
+						<div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+							<a class="nav-link active" id="v-pills-whatwedo-tab" data-toggle="pill" href="#v-pills-whatwedo" role="tab" aria-controls="v-pills-whatwedo" aria-selected="true">About us</a>
+							<a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab" aria-controls="v-pills-mission" aria-selected="false">Our mission</a>
+							<a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-goal" role="tab" aria-controls="v-pills-goal" aria-selected="false">Our Vision</a>
 						</div>
-						<div class="col-md-12 d-flex align-items-center">
-							<div class="tab-content ftco-animate" id="v-pills-tabContent">
-								<div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
-									<div>
-										<h2 class="mb-4">About Us</h2>
-										<p><%= @company_information.about_us%></p>
-									</div>
+					</div>
+					<div class="col-md-12 d-flex align-items-center">
+						<div class="tab-content ftco-animate" id="v-pills-tabContent">
+							<div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
+								<div>
+									<h2 class="mb-4">About Us</h2>
+									<p><%= @company_information.about_us%></p>
 								</div>
-								<div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
-									<div>
-										<h2 class="mb-4">Our Mission</h2>
-										<p><%= @company_information.mission%></p>
-									</div>
+							</div>
+							<div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
+								<div>
+									<h2 class="mb-4">Our Mission</h2>
+									<p><%= @company_information.mission%></p>
 								</div>
-								<div class="tab-pane fade" id="v-pills-goal" role="tabpanel" aria-labelledby="v-pills-goal-tab">
-									<div>
-										<h2 class="mb-4">Our Vision</h2>
-										<p><%= @company_information.vision%></p>
-									</div>
+							</div>
+							<div class="tab-pane fade" id="v-pills-goal" role="tabpanel" aria-labelledby="v-pills-goal-tab">
+								<div>
+									<h2 class="mb-4">Our Vision</h2>
+									<p><%= @company_information.vision%></p>
 								</div>
 							</div>
 						</div>
@@ -69,8 +68,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
-<section class="ftco-section ftco-destination">
+	</div>
+</section>
+<section class="ftco-section ftco-destination" id="destination">
 	<div class="container">
 		<div class="row justify-content-start mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate">
@@ -84,7 +84,7 @@
 					<% @destinations.each do |destination|%>
 						<div class="item">
 							<div class="destination">
-								<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+								<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url('<%= asset_path("Lalibela2.jpg")%>');">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-search2"></span>
 									</div>
@@ -101,7 +101,7 @@
 		</div>
 	</div>
 </section>
-<section class="ftco-section bg-light">
+<section class="ftco-section bg-light" id="tour">
 	<div class="container">
 		<div class="row justify-content-start mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate">
@@ -115,7 +115,7 @@
 			<% @tours.each do |tour|%>
 				<div class="col-sm-12 col-md-6 col-lg-3 ftco-animate">
 					<div class="destination">
-						<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+						<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('<%= asset_path("Lalibela2.jpg")%>');">
 						</a>
 						<div class="text p-3">
 							<div class="d-flex">
@@ -236,7 +236,7 @@
 		</div>
 	</div>
 </section>
-<section class="ftco-section bg-light">
+<section class="ftco-section bg-light" id="blog">
 	<div class="container">
 		<div class="row justify-content-start mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate">
@@ -248,7 +248,7 @@
 			<% @posts.each do |post|%>
 				<div class="col-md-3 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+						<a href="blog-single.html" class="block-20" style="background-image: url('<%= asset_path("Lalibela2.jpg")%>');">
 						</a>
 						<div class="text p-4 d-block">
 							<span class="tag"><%= post.post_type%></span>
@@ -266,7 +266,7 @@
 	</div>
 </section>
 
-<section class="ftco-section contact-section ftco-degree-bg">
+<section class="ftco-section contact-section ftco-degree-bg" id="contact">
 	<div class="container">
 		<div class="row d-flex mb-5 contact-info">
 			<div class="col-md-12 mb-4">
