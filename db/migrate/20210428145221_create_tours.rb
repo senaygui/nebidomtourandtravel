@@ -3,6 +3,7 @@ class CreateTours < ActiveRecord::Migration[5.2]
     create_table :tours do |t|
       t.belongs_to :destination, index: true
       t.string :tour_title
+      t.string :desciption
       t.string :tour_duration
       t.text :itinerary
       t.text :other_essential_info

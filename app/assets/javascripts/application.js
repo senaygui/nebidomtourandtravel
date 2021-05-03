@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-migrate-3.0.1.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery-migrate-3.0.1.min
 //= require popper.min
 //= require bootstrap.min
 //= require jquery.easing.1.3
@@ -370,9 +370,9 @@ $(document).on('turbolinks:load', function(){
   });
 
 
-  $('#checkin_date, #checkout_date').datepicker({
-	  'format': 'm/d/yyyy',
-	  'autoclose': true
-	});
+ //  $('#checkin_date, #checkout_date').datepicker({
+	//   'format': 'm/d/yyyy',
+	//   'autoclose': true
+	// });
 
 })

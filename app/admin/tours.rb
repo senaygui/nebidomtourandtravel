@@ -1,5 +1,5 @@
 ActiveAdmin.register Tour do
- permit_params :destination_id,:tour_title,:tour_duration,:itinerary,:other_essential_info,:map,:tour_avaliblity_status,:tour_display_on_homepage_priority,:tour_price_range
+ permit_params :destination_id,:tour_title,:tour_duration,:itinerary,:other_essential_info,:map,:tour_avaliblity_status,:tour_display_on_homepage_priority,:tour_price_range, :desciption
 
   index do
     selectable_column
@@ -30,6 +30,7 @@ ActiveAdmin.register Tour do
       f.input :destination_id, as: :search_select, url: admin_destinations_path,
           fields: [:destination_name, :id], display_name: 'destination_name', minimum_input_length: 2,
           order_by: 'id_asc'
+      f.input :desciption
       f.input :tour_duration
       f.input :itinerary
       f.input :other_essential_info
@@ -49,6 +50,7 @@ ActiveAdmin.register Tour do
           c.destination.destination_name
         end 
         row :tour_duration
+        row :desciption
         row :itinerary
         row :other_essential_info
         row :map

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_060146) do
+ActiveRecord::Schema.define(version: 2021_04_29_064143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,15 @@ ActiveRecord::Schema.define(version: 2021_04_29_060146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "post_title"
+    t.string "post_type"
+    t.text "body"
+    t.string "author_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "service_name"
     t.text "service_description"
@@ -146,6 +155,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_060146) do
   create_table "tours", force: :cascade do |t|
     t.bigint "destination_id"
     t.string "tour_title"
+    t.string "desciption"
     t.string "tour_duration"
     t.text "itinerary"
     t.text "other_essential_info"
