@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: nebidomtourandtravel_production
-  username: nebidomtourandtravel
-  password: <%= ENV['NEBIDOMTOURANDTRAVEL_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.production[:database] %>
+  username: <%= Rails.application.credentials.production[:username] %>
+  password: <%= Rails.application.credentials.production[:password] %>
