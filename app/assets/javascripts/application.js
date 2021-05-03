@@ -26,7 +26,7 @@
 //= require jquery.animateNumber.min
 //= require bootstrap-datepicker
 //= require scrollax.min
-//= require google-map
+
 
 
 $(document).on('turbolinks:load', function(){
