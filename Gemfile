@@ -33,6 +33,8 @@ gem 'activeadmin', '~> 2.9'
 gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
 gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
 gem 'country_select', '~> 4.0'
+gem 'active_storage_drag_and_drop', '~> 1.1'
+gem 'image_processing'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

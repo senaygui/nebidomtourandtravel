@@ -1,5 +1,5 @@
 ActiveAdmin.register Destination do
-  permit_params :destination_name,:destination_description,:country,:city,:map_embed_link
+  permit_params :destination_name,:destination_description,:country,:city,:map_embed_link, medias: []
   
   index do
     selectable_column
@@ -27,6 +27,21 @@ ActiveAdmin.register Destination do
       f.input :country
       f.input :city
       f.input :map_embed_link
+      div class: "file-upload" do
+        f.drag_and_drop_file_field :medias
+      end
+      if f.object.medias.attached?
+        f.object.medias.each do |media|
+          span do
+            if media.variable?
+              span image_tag(media, size: '100x100')
+            elsif media.previewable?
+              span image_tag(media.preview(resize: '100x100'))
+            end
+            span link_to 'delete', delete_media_admin_library_path(media.id), method: :delete, data: { confirm: 'Are you sure?' }
+          end
+        end
+      end
     end
     f.actions
   end
@@ -41,6 +56,19 @@ ActiveAdmin.register Destination do
         row :map_embed_link
         row :updated_at
         row :created_at
+        row :medias do
+          div do
+            destination.medias.each do |media|
+              span do
+                if media.image?
+                  image_tag url_for(media), size: '200x200'
+                else
+                  video_tag url_for(media), size: '200x200', controls: ''
+                end
+              end
+            end
+          end
+        end
       end
       
     end
