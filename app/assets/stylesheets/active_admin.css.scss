@@ -30,3 +30,15 @@
   margin-right: auto;
   width: 60%;
 }
+
+.uploaded-file{
+	// display: block;
+  // width: 60%;
+  padding-top: 20px;
+  margin-left: 260px;
+ 	display: inline-grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	align-content: center;
+	// grid-template-rows: 1fr 1fr;
+}

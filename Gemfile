@@ -35,6 +35,7 @@ gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
 gem 'country_select', '~> 4.0'
 gem 'active_storage_drag_and_drop', '~> 1.1'
 gem 'image_processing'
+gem 'cloudinary'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

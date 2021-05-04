@@ -42,19 +42,27 @@ ActiveAdmin.register Tour do
         f.drag_and_drop_file_field :medias
       end
       if f.object.medias.attached?
-        f.object.medias.each do |media|
-          span do
-            if media.variable?
-              span image_tag(media, size: '100x100')
-            elsif media.previewable?
-              span image_tag(media.preview(resize: '100x100'))
+        div class: "uploaded-file" do
+          f.object.medias.each do |media|
+            div do
+              if media.variable?
+                span image_tag(media, size: '100x100')
+              elsif media.previewable?
+                span image_tag(media.preview(resize: '100x100')) 
+              end
+              div link_to 'delete', delete_media_admin_tour_path(media.id), method: :delete, data: { confirm: 'Are you sure?' }
             end
-            span link_to 'delete', delete_media_admin_library_path(media.id), method: :delete, data: { confirm: 'Are you sure?' }
           end
         end
       end
     end
     f.actions
+  end
+
+  member_action :delete_media, method: :delete do
+    @pic = ActiveStorage::Attachment.find(params[:id])
+    @pic.purge_later
+    redirect_back(fallback_location: edit_admin_tour_path)
   end
 
   show title: :tour_title do

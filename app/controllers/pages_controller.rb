@@ -1,12 +1,14 @@
 class PagesController < ApplicationController
   def home
+    @company_information = CompanyInformation.first
   	@services = Service.all
-  	@company_information = CompanyInformation.first
   	@destinations = Destination.all
   	@tours = Tour.all
   	@packages = Package.all
-  	@testimonials = Contact.where(comment_type: "Testimonial").limit(4)
-    @posts = Post.all
+  	@testimonials = Contact.where(comment_type: "Testimonial").limit(4).order('created_at DESC')
+    @posts = Post.limit(4).order('created_at DESC')
+    @partners = Partner.all.limit(4)
+    @faq = FrequentlyAskedQuestion.limit(6).order('created_at DESC')
   end
 
   def create
@@ -25,7 +27,7 @@ class PagesController < ApplicationController
 
   def contact
     @company_information = CompanyInformation.first
-    @testimonials = Contact.where(comment_type: "Testimonial").limit(4)
+    @testimonials = Contact.where(comment_type: "Testimonial").limit(4).order('created_at DESC')
   end
 
   def user_comment_params
