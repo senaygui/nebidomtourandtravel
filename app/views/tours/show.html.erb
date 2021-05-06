@@ -16,28 +16,7 @@
 <section class="ftco-section ftco-degree-bg">
 	<div class="container-fluid">
 		<div class="row">	
-			<div class="col-lg-4 sidebar ftco-animate">
-				<div class="sidebar-box ftco-animate">
-					<h3>Recent Blog</h3>
-					<% @posts.each do |post|%>
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4" style="background-image: url(<%= rails_blob_url(post.medias[0])%>);"></a>
-							<div class="text">
-								<h3 class="heading"><%= link_to post.post_title, "#"%></h3>
-								<div class="meta">
-									<div><a href="#"><span class="icon-calendar"></span> <%= post.created_at.strftime("%b %d, %Y")%></a></div>
-									<div><a href="#"><span class="icon-person"></span> Admin</a></div>
-									<div><a href="#"><span class="icon-chat"></span> 19</a></div>
-								</div>
-							</div>
-						</div>
-					<%end%>
-				</div>
-				<div class="sidebar-box ftco-animate">
-					<h3>About Us</h3>
-					<p>Nebidom tour and travel is an exclusive private tour company based in Addis Ababa, Ethiopia. With a squad of experienced professionals , we afford the best vacation holidays in Ethiopia. We have the widest choices of well designed tour packages for groups and individuals throughout Ethiopia. Our package tours include: cultural tours, historical tours, festival tours, adventure tours, wildlife safari, trekking, business in Ethiopia, bird watching, car rental and so much more..</p>
-				</div>
-			</div>
+			
 			<div class="col-lg-8">
 				<div class="row">
 					<div class="col-md-12 ftco-animate">
@@ -72,7 +51,6 @@
 										<a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab" aria-controls="v-pills-mission" aria-selected="false">Itinerary</a>
 										<a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-goal" role="tab" aria-controls="v-pills-goal" aria-selected="false">Essential Information</a>
 										<a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-map" role="tab" aria-controls="v-pills-map" aria-selected="false">Tour Map</a>
-										<a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-package" role="tab" aria-controls="v-pills-package" aria-selected="false">Tour Package</a>
 									</div>
 								</div>
 								<div class="col-md-12 d-flex align-items-center">
@@ -124,7 +102,7 @@
 								              	<li><span class="fa-li"><i class="fas fa-check"></i></span><%= package_checklist.list%></li>
 								              <%end%>
 								            </ul>
-								            <%= link_to "Book Now", "#", class: "btn btn-block btn-primary text-uppercase"%>
+								            <button type="button" data-id="<%= package.id%>" class="btn btn-block btn-primary text-uppercase open-AddBookDialog" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Book Now</button>
 								          </div>
 								        </div>
 								      </div>
@@ -153,6 +131,28 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 sidebar ftco-animate">
+				<div class="sidebar-box ftco-animate">
+					<h3>Recent Blog</h3>
+					<% @posts.each do |post|%>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4" style="background-image: url(<%= rails_blob_url(post.medias[0])%>);"></a>
+							<div class="text">
+								<h3 class="heading"><%= link_to post.post_title, "#"%></h3>
+								<div class="meta">
+									<div><a href="#"><span class="icon-calendar"></span> <%= post.created_at.strftime("%b %d, %Y")%></a></div>
+									<div><a href="#"><span class="icon-person"></span> Admin</a></div>
+									<div><a href="#"><span class="icon-chat"></span> 19</a></div>
+								</div>
+							</div>
+						</div>
+					<%end%>
+				</div>
+				<div class="sidebar-box ftco-animate">
+					<h3>About Us</h3>
+					<p>Nebidom tour and travel is an exclusive private tour company based in Addis Ababa, Ethiopia. With a squad of experienced professionals , we afford the best vacation holidays in Ethiopia. We have the widest choices of well designed tour packages for groups and individuals throughout Ethiopia. Our package tours include: cultural tours, historical tours, festival tours, adventure tours, wildlife safari, trekking, business in Ethiopia, bird watching, car rental and so much more..</p>
 				</div>
 			</div> 
 		</div>
@@ -228,3 +228,58 @@
   }
 }
 </style>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(Book.new, url: books_path, method: "post") do |f|%>
+        	<input type="hidden" name="bookId" id="bookId" value=""/>
+        	<%= f.hidden_field :package_id, class: "form-control"%>
+          <div class="form-group">
+            <label for="full_name" class="col-form-label">Fullname</label>
+            <%= f.text_field :customer_full_name, class: "form-control", placeholder: "Full Name *",required: true %>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">Email</label>
+            <%= f.email_field :email, class: "form-control", placeholder: "Email *",required: true %>
+          </div>
+          <div class="form-group">
+            <label for="phone_number" class="col-form-label">Phone Number</label>
+            <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number *",required: true %>
+          </div>
+          <div class="form-group">
+            <label for="address" class="col-form-label">Adress</label>
+            <%= f.text_field :address, class: "form-control", placeholder: "Address",required: true %>
+          </div>
+          <div class="form-group">
+            <label for="quantity" class="col-form-label">Quantity</label>
+            <%= f.number_field :quantity, class: "form-control", placeholder: "Quantity",required: true %>
+          </div>
+        
+      </div>
+	      <div class="modal-footer">
+	        <%= f.submit 'Book Now', class: "btn btn-primary py-3 px-5" %>
+	      </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<script>
+	$(function(){
+	  $(".open-AddBookDialog").click(function(){
+	     $('#book_package_id').val($(this).data('id'));
+	    $("#addBookDialog").modal("show");
+	  });
+	});
+</script>
