@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_114458) do
+ActiveRecord::Schema.define(version: 2021_05_06_092027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_114458) do
     t.string "tour_price_range"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tour_short_video"
     t.index ["destination_id"], name: "index_tours_on_destination_id"
   end
 

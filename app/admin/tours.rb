@@ -1,5 +1,5 @@
 ActiveAdmin.register Tour do
- permit_params :destination_id,:tour_title,:tour_duration,:itinerary,:other_essential_info,:map,:tour_avaliblity_status,:tour_display_on_homepage_priority,:tour_price_range, :desciption, medias: []
+ permit_params :destination_id,:tour_title,:tour_duration,:itinerary,:other_essential_info,:map,:tour_avaliblity_status,:tour_display_on_homepage_priority,:tour_price_range, :desciption, :tour_short_video,medias: []
 
   index do
     selectable_column
@@ -34,6 +34,7 @@ ActiveAdmin.register Tour do
       f.input :tour_duration
       f.input :itinerary
       f.input :other_essential_info
+      f.input :tour_short_video, label: "short video youtube link"
       f.input :map
       f.input :tour_avaliblity_status
       f.input :tour_display_on_homepage_priority, as: :select, collection: ["Low", "Medium", "High"]
@@ -76,7 +77,13 @@ ActiveAdmin.register Tour do
         row :desciption
         row :itinerary
         row :other_essential_info
-        row :map
+        row "short video youtube link", class: "video-responsive" do |s|
+          s.tour_short_video.html_safe
+        end
+        row "map", class: "video-responsive" do |s|
+          s.map.html_safe
+        end
+        # row :map
         row :tour_avaliblity_status
         row :tour_display_on_homepage_priority
         row :tour_price_range
