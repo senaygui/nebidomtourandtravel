@@ -23,6 +23,11 @@ class PagesController < ApplicationController
   end
 
   def about
+    @company_information = CompanyInformation.first
+    @services = Service.all
+    @testimonials = Contact.where(comment_type: "Testimonial").limit(4).order('created_at DESC')
+    @partners = Partner.all.limit(4)
+    @faq = FrequentlyAskedQuestion.limit(6).order('created_at DESC')
   end
 
   def contact
