@@ -97,13 +97,13 @@
         <% @destinations.each do |destination|%>
             <div class="col-md-3">
               <div class="destination">
-                <a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(<%= rails_blob_url(destination.medias[0]) %>);">
+                <%= link_to destination_path(destination), class: "img d-flex justify-content-center align-items-center", style:"background-image: url(#{rails_blob_url(destination.medias[0])});" do%>
                   <div class="icon d-flex justify-content-center align-items-center">
                     <span class="icon-search2"></span>
                   </div>
-                </a>
+                <%end%>
                 <div class="text p-3">
-                  <h3><a href="#"><%= destination.destination_name%>, <%= destination.country%></a></h3>
+                  <h3><a href="#"><%= link_to destination.destination_name, destination_path(destination)%>, <%= destination.country%></a></h3>
                   <span class="listing"><%= destination.tours.count%> Listed Tours</span>
                 </div>
               </div>

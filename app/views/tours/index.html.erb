@@ -97,7 +97,8 @@
         <% @tours.each do |tour|%>
           <div class="col-md-4  ftco-animate">
             <div class="destination">
-              <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(<%= rails_blob_url(tour.medias[0]) %>);">
+              <%= link_to tour_path(tour), class: "img img-2 d-flex justify-content-center align-items-center", style: "background-image: url(#{rails_blob_url(tour.medias[0])});" do%>
+              <%end%>
               </a>
               <div class="text p-3">
                 <div class="d-flex">

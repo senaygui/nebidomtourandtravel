@@ -140,10 +140,10 @@
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4" style="background-image: url(<%= rails_blob_url(post.medias[0])%>);"></a>
 							<div class="text">
-								<h3 class="heading"><%= link_to post.post_title, "#"%></h3>
+								<h3 class="heading"><%= link_to post.post_title, post_path(post)%></h3>
 								<div class="meta">
 									<div><a href="#"><span class="icon-calendar"></span> <%= post.created_at.strftime("%b %d, %Y")%></a></div>
-									<div><a href="#"><span class="icon-person"></span> Admin</a></div>
+									<div><a href="#"><span class="icon-person"></span> <%= post.author_name%></a></div>
 									<div><a href="#"><span class="icon-chat"></span> 19</a></div>
 								</div>
 							</div>
