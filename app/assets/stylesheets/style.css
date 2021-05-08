@@ -3277,6 +3277,9 @@ input[type="button"].btn-block {
   white-space: nowrap; }
   .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none; }
+.navbar-brand {
+  font-weight: 700;
+  font-size: 20px; }
 
 .navbar-nav {
   display: -webkit-box;
@@ -3333,12 +3336,18 @@ input[type="button"].btn-block {
   background-size: 100% 100%; }
 
 @media (max-width: 575.98px) {
+  .navbar-brand {
+        font-weight: 700;
+        font-size: 17px; }
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
 @media (min-width: 576px) {
+  .navbar-brand {
+        font-weight: 700;
+        font-size: 17px; }
   .navbar-expand-sm {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -3371,12 +3380,18 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 767.98px) {
+  .navbar-brand {
+        font-weight: 700;
+        font-size: 17px; }
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
 @media (min-width: 768px) {
+  .navbar-brand {
+        font-weight: 700;
+        font-size: 17px; }
   .navbar-expand-md {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -7408,12 +7423,19 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
       border-color: #f85959; }
     @media (max-width: 991.98px) {
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 17px; }
       .ftco-navbar-light.scrolled .navbar-nav {
         background: none;
         border-radius: 0px;
         padding-left: 0rem !important;
         padding-right: 0rem !important; } }
+
     @media (max-width: 767.98px) {
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 17px; }
       .ftco-navbar-light.scrolled .navbar-nav {
         background: none;
         padding-left: 0 !important;
@@ -7445,9 +7467,7 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light.scrolled .navbar-brand {
       color: #000000; }
 
-.navbar-brand {
-  font-weight: 700;
-  font-size: 20px; }
+
 
 .hero-wrap {
   width: 100%;
