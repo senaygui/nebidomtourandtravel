@@ -374,5 +374,7 @@ $(document).on('turbolinks:load', function(){
 	//   'format': 'm/d/yyyy',
 	//   'autoclose': true
 	// });
-
+	if ( $('.flash').length ) { // if there is an DOM that has class has-error
+    $('#mde').modal('show'); // Show Modal
+  }
 })

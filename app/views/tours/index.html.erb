@@ -1,4 +1,12 @@
 <%provide :title, "Tours"%>
+
+<% [:info, :error].each do |key| %>
+  <% if flash[key] %>
+  <div class="<%= key %>" id="flash">
+    <%= flash[key] %>
+  </div>
+  <% end %>
+<% end %>
 <div class="hero-wrap js-fullheight" style="background-image: url('<%= asset_path("bale2.jpg")%>');">
   <div class="overlay"></div>
   <div class="container">

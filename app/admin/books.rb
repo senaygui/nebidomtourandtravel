@@ -4,6 +4,7 @@ permit_params :package_id,:customer_full_name,:email,:phone_number,:address,:qua
 
   index do
     selectable_column
+    column :id
     column :customer_full_name
     column "Package", sortable: true do |c|
       c.package.package_title
@@ -19,6 +20,7 @@ permit_params :package_id,:customer_full_name,:email,:phone_number,:address,:qua
     column :created_at
     actions
   end
+  filter :id
   filter :package_id, as: :search_select_filter, url: proc { admin_packages_path },
          fields: [:package_title, :id], display_name: 'package_title', minimum_input_length: 2,
          order_by: 'id_asc'
@@ -52,6 +54,7 @@ permit_params :package_id,:customer_full_name,:email,:phone_number,:address,:qua
   show title: :customer_full_name do
     panel 'booking Infromation' do
       attributes_table_for book do
+        row :id
         row "Package", sortable: true do |c|
           c.package.package_title
         end

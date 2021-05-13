@@ -25,7 +25,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to tours_path, notice: "Thank you for booking we will contact you soon" }
+        format.html { redirect_to tours_path, notice: " #{@book.id}" }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }

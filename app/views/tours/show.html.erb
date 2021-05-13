@@ -236,7 +236,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Book Tour</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -265,12 +265,10 @@
             <label for="quantity" class="col-form-label">Quantity</label>
             <%= f.number_field :quantity, class: "form-control", placeholder: "Quantity",required: true %>
           </div>
-        
+          <%= f.submit 'Book Now', class: "btn btn-primary py-3 px-5" %>
+        <%end%>
       </div>
-	      <div class="modal-footer">
-	        <%= f.submit 'Book Now', class: "btn btn-primary py-3 px-5" %>
-	      </div>
-      <%end%>
+      
     </div>
   </div>
 </div>
