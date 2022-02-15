@@ -90,4 +90,4 @@ production:
   <<: *default
   database: nebidomtourandtravel_production
   username: nebidomtourandtravel
-  password: 1234567frcsjjgg
+  password: <%= ENV['HISAB_DATABASE_PASSWORD'] %>
