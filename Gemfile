@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.7', '>= 4.7.3'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+# gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', '~> 2.9'
 gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
 gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
