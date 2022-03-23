@@ -1,6 +1,6 @@
-role :app, %w{deploy@207.154.212.102}
-role :web, %w{deploy@207.154.212.102 }
-role :db, %w{deploy@207.154.212.102}, :primary => true
+role :app, %w{deploy@164.92.179.142}
+role :web, %w{deploy@164.92.179.142 }
+role :db, %w{deploy@164.92.179.142}, :primary => true
 set :branch, "master"
 set :rails_env, "staging"
 set :deploy_to, '/home/deploy/nebidomtourandtravel'
