@@ -4,14 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 5.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -27,14 +26,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'devise', '~> 4.7', '>= 4.7.3'
-# gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+gem 'devise', '~> 4.8'
 gem 'activeadmin', '~> 2.9'
 gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
-gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
-gem 'country_select', '~> 4.0'
+gem 'active_admin_theme', '~> 1.1', '>= 1.1.4'
 gem 'active_storage_drag_and_drop', '~> 1.1'
 gem 'image_processing'
+gem 'active_storage_validations', '~> 0.9.5'
+gem 'country_select', '~> 4.0'
 gem 'cloudinary'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
