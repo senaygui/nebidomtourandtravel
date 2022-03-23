@@ -11,6 +11,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -26,19 +27,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-gem 'jquery-rails', '~> 4.3'
-gem 'devise', '~> 4.8'
-gem 'activeadmin', '~> 2.9'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 # gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin', '~> 2.9'
 gem 'activeadmin_addons', '~> 1.7', '>= 1.7.1'
-gem 'active_admin_theme', '~> 1.1', '>= 1.1.4'
-gem 'country_select', '~> 3.1', '>= 3.1.1'
+gem 'active_admin_theme', '~> 1.1', '>= 1.1.3'
+gem 'country_select', '~> 4.0'
 gem 'active_storage_drag_and_drop', '~> 1.1'
 gem 'image_processing'
 gem 'cloudinary'
@@ -50,12 +44,6 @@ gem 'cloudinary'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
-
 group :development do
   gem 'capistrano', '~> 3.11'
   gem 'capistrano-rails', '~> 1.4'
