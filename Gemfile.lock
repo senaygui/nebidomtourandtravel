@@ -43,7 +43,7 @@ GEM
       kaminari (~> 1.0, >= 1.2.1)
       railties (>= 5.2, < 6.2)
       ransack (~> 2.1, >= 2.1.1)
-    activeadmin_addons (1.9.0)
+    activeadmin_addons (1.7.1)
       active_material
       railties
       require_all
