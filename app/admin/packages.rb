@@ -7,25 +7,26 @@ permit_params :package_title,:package_description,:price, :tour_id,package_check
     column "tour", sortable: true do |c|
       c.tour.tour_title
     end
-    number_column :price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
+    column :price do |pt|
+      number_to_currency(pt.price, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2)
+    end
+    # number_column :price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
     column :updated_at
     column :created_at
     actions
   end
 
-  filter :tour_id, as: :search_select_filter, url: proc { admin_tours_path },
-         fields: [:tour_title, :id], display_name: 'tour_title', minimum_input_length: 2,
-         order_by: 'id_asc'
+  filter :tour_id, as: :select, :collection => Tour.pluck(:tour_title, :id),
+          order_by: 'id_asc'
   filter :package_title
-  filter :price, as: :numeric_range_filter
+  filter :price
   filter :updated_at
   filter :created_at
 
   form do |f|
     f.inputs "Package Infromation" do
       f.input :package_title
-      f.input :tour_id, as: :search_select, url: admin_tours_path,
-          fields: [:tour_title, :id], display_name: 'tour_title', minimum_input_length: 2,
+      f.input :tour_id, as: :select, :collection => Tour.pluck(:tour_title, :id),
           order_by: 'id_asc'
       f.input :price
       f.input :package_description
@@ -43,7 +44,10 @@ permit_params :package_title,:package_description,:price, :tour_id,package_check
         row "tour", sortable: true do |c|
           c.tour.tour_title
         end
-        number_row :price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
+        # number_row :price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
+        row :price do |pt|
+          number_to_currency(pt.price, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2)
+        end
         row :package_description
         row :updated_at
         row :created_at

@@ -13,9 +13,8 @@ ActiveAdmin.register Tour do
     column :created_at
     actions
   end
-  filter :destination_id, as: :search_select_filter, url: proc { admin_destinations_path },
-         fields: [:destination_name, :id], display_name: 'destination_name', minimum_input_length: 2,
-         order_by: 'id_asc'
+  filter :destination_id, as: :select, :collection => Destination.pluck(:destination_name, :id),
+          order_by: 'id_asc'
   filter :tour_title
   filter :tour_duration
   filter :tour_avaliblity_status
@@ -27,8 +26,7 @@ ActiveAdmin.register Tour do
   form do |f|
     f.inputs "Tour Infromation" do
       f.input :tour_title
-      f.input :destination_id, as: :search_select, url: admin_destinations_path,
-          fields: [:destination_name, :id], display_name: 'destination_name', minimum_input_length: 2,
+      f.input :destination_id, as: :select, :collection => Destination.pluck(:destination_name, :id),
           order_by: 'id_asc'
       f.input :desciption
       f.input :tour_duration

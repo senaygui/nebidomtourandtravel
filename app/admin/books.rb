@@ -16,14 +16,16 @@ permit_params :package_id,:customer_full_name,:email,:phone_number,:address,:qua
     # column :email
     # column :phone_number
     column :payment_status
-    number_column :total_price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
+    # number_column :total_price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
+    column :total_price do |pt|
+      number_to_currency(pt.total_price, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2)
+    end
     column :created_at
     actions
   end
   filter :id
-  filter :package_id, as: :search_select_filter, url: proc { admin_packages_path },
-         fields: [:package_title, :id], display_name: 'package_title', minimum_input_length: 2,
-         order_by: 'id_asc'
+  filter :package_id, as: :select, :collection => Package.pluck(:package_title, :id),
+          order_by: 'id_asc'
   filter :customer_full_name
   filter :email
   filter :phone_number
@@ -37,8 +39,7 @@ permit_params :package_id,:customer_full_name,:email,:phone_number,:address,:qua
 
   form do |f|
     f.inputs "Booking Infromation" do
-      f.input :package_id, as: :search_select, url: admin_packages_path,
-          fields: [:package_title, :id], display_name: 'package_title', minimum_input_length: 2,
+      f.input :package_id, as: :select, :collection => Package.pluck(:package_title, :id),
           order_by: 'id_asc'
       f.input :quantity
       f.input :customer_full_name
@@ -65,7 +66,10 @@ permit_params :package_id,:customer_full_name,:email,:phone_number,:address,:qua
         row :email
         row :phone_number
         row :quantity
-        number_row :total_price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
+        row :total_price do |pt|
+          number_to_currency(pt.total_price, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2)
+        end
+        # number_row :total_price, as: :currency, unit: "ETB",  format: "%n %u" ,delimiter: ",", precision: 2
         row :payment_status
         row :partial_paid_amount
         row :updated_at
